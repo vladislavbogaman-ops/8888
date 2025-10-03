@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  telegram-bot:
+    build: .
+    container_name: telegram-bot
+    restart: unless-stopped
+
+    environment:
+      API_ID: "1234567"              # твой API_ID из my.telegram.org
+      API_HASH: "abcdef1234567890abcdef1234567890"   # твой API_HASH
+      BASE_DELAY: "30"
+      PORT: "8080"                   # Railway требует порт — используем 8080
+
+    ports:
+      - "8080:8080"
